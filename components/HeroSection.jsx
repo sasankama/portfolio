@@ -19,7 +19,7 @@ const HeroSection = () => {
           <a href="#about-section" className="hover:text-red-500" onClick={() => {
               document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
             }}>ABOUT</a>
-          <a href="#projects-section" className="hover:text-red-500">PROJECTS</a>
+          <Link href="/projects" className="hover:text-red-500">PROJECTS</Link>
           <Link href="/contact" className="hover:text-red-500">CONTACTS</Link>
         </nav>
       </header>

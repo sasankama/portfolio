@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-// Project data
+// Your project data
 const projects = [
   {
     title: "Smart Aquarium System",
@@ -23,7 +23,7 @@ const projects = [
   },
 ];
 
-const ProjectsPage = () => {
+const ProjectsSection = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white py-20 px-6 md:px-12">
       {/* Social Links */}
@@ -32,7 +32,7 @@ const ProjectsPage = () => {
           href="https://github.com/your-username"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-purple-400 transition"
+          className="hover:text-cyan-400 transition"
         >
           GitHub
         </a>
@@ -81,4 +81,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default ProjectsSection;
