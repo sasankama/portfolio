@@ -31,13 +31,43 @@ export default function Home() {
       <HeroSection />
 
       {/* About Section */}
-      <section id="about-section" className="py-20 px-12 bg-[#1a1a1a]">
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className="text-gray-400 max-w-2xl">
-          I'm Sasanka Malshan, a passionate developer focused on creating
-          intuitive digital experiences and impactful UI designs.
-        </p>
-      </section>
+      <section
+  id="about-section"
+  className="min-h-screen flex flex-col justify-center items-start px-12 py-20 bg-[#1a1a1a]"
+>
+  <h2 className="text-4xl font-bold mb-6">About Me</h2>
+  <p className="text-gray-400 max-w-3xl text-lg leading-relaxed mb-10">
+    I'm <span className="text-white font-semibold">Sasanka Malshan</span>, a passionate
+    developer focused on building seamless digital experiences and engaging user interfaces.
+    I enjoy solving complex problems, crafting elegant designs, and learning new technologies.
+  </p>
+
+  <div>
+    <h3 className="text-2xl font-semibold mb-4">Skills</h3>
+    <div className="flex flex-wrap gap-4">
+      {[
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Git",
+        "Figma",
+      ].map((skill, index) => (
+        <span
+          key={index}
+          className="bg-[#2a2a2a] text-white px-4 py-2 rounded-full text-sm hover:bg-red-500 transition"
+        >
+          {skill}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Projects Section */}
       <section id="projects-section" className="py-20 px-6 md:px-12 bg-[#121212]">
@@ -96,8 +126,9 @@ export default function Home() {
       {/* Contact Info */}
       <section id="contact-section" className="py-20 px-12 bg-[#111111]">
         <h2 className="text-3xl font-bold mb-4">Contact Info</h2>
-        <p>Email: sasanka@example.com</p>
-        <p>Phone: +94 123 456 789</p>
+        <p>Email: ssbkmlshn123@gmail.com</p>
+        <p>Phone: +94 782053709</p>
+        <p>whatsapp: +94 782053709</p>
       </section>
 
       {/* Footer */}

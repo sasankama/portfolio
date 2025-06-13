@@ -2,19 +2,33 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useEffect } from 'react';
+
 
 const HeroSection = () => {
+  useEffect(() => {
+  const handleScroll = () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      nav.classList.add('bg-[#121212]/80', 'backdrop-blur-md', 'shadow-md');
+      nav.classList.remove('bg-transparent', 'backdrop-blur-none');
+    } else {
+      nav.classList.add('bg-transparent', 'backdrop-blur-none');
+      nav.classList.remove('bg-[#121212]/80', 'backdrop-blur-md', 'shadow-md');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-black via-[#1a0c0c] to-black text-white overflow-hidden">
       {/* Navigation Bar */}
-      <header className="flex items-center justify-start gap-8 px-8 py-6">
-        <div className="cursor-pointer space-y-1">
-          <div className="w-6 h-0.5 bg-white"></div>
-          <div className="w-6 h-0.5 bg-white"></div>
-          <div className="w-6 h-0.5 bg-white"></div>
-        </div>
-
-        <nav className="flex gap-8 text-sm">
+      <header
+  className="fixed top-0 left-0 justify-between w-full z-50 h-20 bg-transparent backdrop-blur-none transition-all duration-300 ease-in-out py-6 px-8"
+  id="navbar">
+        <nav className="flex gap-8 text-sm py--4 px-12">
           <a href="#" className="hover:text-red-500">HOME</a>
           <a href="#about-section" className="hover:text-red-500" onClick={() => {
               document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -24,7 +38,7 @@ const HeroSection = () => {
         </nav>
       </header>
 
-      <main className="grid grid-cols-2 items-center px-20 py-10">
+      <main className="grid grid-cols-2 items-center px-20 py-10 pt-10">
         <div className="space-y-6">
           <p className="uppercase text-sm tracking-widest text-gray-300">I am</p>
           <h1 className="text-6xl font-bold">Sasanka Malshan</h1>
