@@ -1,28 +1,14 @@
 "use client";
 import HeroSection from "../../components/HeroSection";
 import React from "react";
+import { projects } from "@/projects"; // ✅ Now this will work
+import Link from "next/link";
+import { projectUI } from "../projectUI"; // ✅ correct if page.js is in src/app
+import { projectUI2 } from "@/projectUI2";
+
+
 
 // Define your project data
-const projects = [
-  {
-    title: "Smart Aquarium System",
-    description: "IoT-based aquarium controller with React dashboard and ESP32.",
-    image: "/images/aquarium.jpg",
-    color: "border-cyan-500",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Responsive personal site built with Next.js and Tailwind CSS.",
-    image: "/images/portfolio.jpg",
-    color: "border-purple-500",
-  },
-  {
-    title: "AI Image Enhancer",
-    description: "Web app that enhances photos using open-source AI models.",
-    image: "/images/ai.jpg",
-    color: "border-green-500",
-  },
-];
 
 export default function Home() {
   return (
@@ -102,24 +88,42 @@ export default function Home() {
         {/* Title */}
         <h1 className="text-4xl font-bold mb-12 text-center">My Projects</h1>
 
-        {/* Project Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`bg-[#1a1a1a] p-6 rounded-2xl border-2 ${project.color}
-                transform transition duration-300 ease-in-out
-                hover:scale-105 hover:bg-[#222] hover:shadow-xl`}
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-40 object-cover rounded-lg mb-4"
-              />
-              <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-              <p className="text-gray-400 text-sm">{project.description}</p>
+        {/* Portfolio Coding Projects */}
+        {/* Top 3 cards in a row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+          {/* Portfolio Card */}
+          <Link href={`/projects/${projects[0].slug}`}>
+            <div className="bg-[#1a1a1a] p-6 rounded-2xl border-2 border-gray-800 hover:scale-105 hover:bg-[#222] hover:shadow-xl transition max-w-full">
+              <img src={projects[0].image} alt={projects[0].title} className="w-full h-40 object-cover rounded-lg mb-4" />
+              <h2 className="text-xl font-semibold mb-2">{projects[0].title}</h2>
+              <p className="text-gray-400 text-sm">{projects[0].description}</p>
             </div>
-          ))}
+          </Link>
+
+            {/* UI/UX Card 1 */}
+          <Link href={`/UIUX/${projectUI[0].slug}`}>
+              <div className="bg-[#1a1a1a] p-6 rounded-2xl border-2 border-gray-800 hover:scale-105 hover:bg-[#222] hover:shadow-xl transition max-w-full">
+                <img src={projectUI[0].image} alt={projectUI[0].title} className="w-full h-40 object-cover rounded-lg mb-4" />
+                <h2 className="text-xl font-semibold mb-2">{projectUI[0].title}</h2>
+                <p className="text-gray-400 text-sm">{projectUI[0].description}</p>
+              </div>
+            </Link>
+                  {/* */}
+              <Link href={`/UIUX/${projectUI[0].slug}`}>
+              <div className="bg-[#1a1a1a] p-6 rounded-2xl border-2 border-gray-800 hover:scale-105 hover:bg-[#222] hover:shadow-xl transition max-w-full">
+                <img src={projectUI[0].image} alt={projectUI[0].title} className="w-full h-40 object-cover rounded-lg mb-4" />
+                <h2 className="text-xl font-semibold mb-2">{projectUI[0].title}</h2>
+                <p className="text-gray-400 text-sm">{projectUI[0].description}</p>
+              </div>
+            </Link>
+
+            <Link href={`/UIUX2/${projectUI2[0].slug}`}>
+            <div className="bg-[#1a1a1a] p-6 rounded-2x1 border-2 border-gray-800 hover:scale-105 hover:bg-[#222] hover:shadow-xl transition max-w-full">
+              <img src ={projectUI2[0].image} alt={projectUI2[0].title} className="w-full h-40 object-cover rounded-lg mb-4" />
+              <h2 className="text-xl font-sembold mb-2">{projectUI2[0].title}</h2>
+              <p className="text-gray-400 text-sm">{projectUI2[0].description}</p>
+            </div>
+            </Link>
         </div>
       </section>
 
